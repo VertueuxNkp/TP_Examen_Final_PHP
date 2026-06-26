@@ -1,0 +1,62 @@
+<!-- ============================================================
+  vues/clients/friends.html
+  Gestion des amis — injectée dans index.html par router.js
+  ============================================================ -->
+
+<nav class="navbar">
+  <div class="navbar__logo">🌐 Réseau Social</div>
+  <div class="navbar__liens">
+    <a href="#" onclick="naviguerVers('feed');    return false;" class="navbar__lien">🏠 Accueil</a>
+    <a href="#" onclick="naviguerVers('friends'); return false;" class="navbar__lien actif">👥 Amis</a>
+    <a href="#" onclick="naviguerVers('chat');    return false;" class="navbar__lien">💬 Messages</a>
+    <a href="#" onclick="naviguerVers('profile'); return false;" class="navbar__lien">👤 Profil</a>
+    <button onclick="seDeconnecter()" class="btn btn--danger btn--sm">Déconnexion</button>
+  </div>
+</nav>
+
+<main class="friends-container">
+
+  <div class="card">
+
+    <!-- Onglets -->
+    <div class="onglets">
+      <button class="onglet" data-onglet="amis"
+              onclick="chargerOngletActif('amis')">
+        👥 Mes amis
+      </button>
+      <button class="onglet" data-onglet="utilisateurs"
+              onclick="chargerOngletActif('utilisateurs')">
+        🔍 Trouver des amis
+      </button>
+    </div>
+
+    <!-- Onglet : Mes amis + demandes reçues -->
+    <div id="onglet-amis" class="onglet-contenu">
+      <div id="liste-demandes"></div>
+      <div id="liste-amis">
+        <p class="chargement">Chargement...</p>
+      </div>
+    </div>
+
+    <!-- Onglet : Tous les utilisateurs -->
+    <div id="onglet-utilisateurs" class="onglet-contenu" style="display:none;">
+
+      <!-- Barre de recherche -->
+      <div class="recherche-bar">
+        <input
+          type="text"
+          id="input-recherche"
+          placeholder="Rechercher un utilisateur..."
+          class="input-recherche"
+          oninput="rechercherUtilisateur()"
+        />
+      </div>
+
+      <div id="liste-utilisateurs">
+        <p class="chargement">Chargement...</p>
+      </div>
+    </div>
+
+  </div>
+
+</main>
