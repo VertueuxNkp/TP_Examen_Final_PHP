@@ -1,0 +1,110 @@
+<!-- ============================================================
+  vues/clients/register.html
+  Vue d'inscription — injectée dans index.html par le router.js
+  ============================================================ -->
+
+<section class="auth-container">
+
+  <div class="auth-card">
+
+    <div class="auth-header">
+      <h1 class="auth-logo">🌐 Réseau Social</h1>
+      <p class="auth-subtitle">Créez votre compte gratuitement</p>
+    </div>
+
+    <div id="msg-inscription" class="message" style="display:none;"></div>
+
+    <div id="form-inscription" class="auth-form">
+
+      <!-- Nom et Prénom côte à côte -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="prenom">Prénom</label>
+          <input
+            type="text"
+            id="prenom"
+            placeholder="Votre prénom"
+            autocomplete="given-name"
+          />
+        </div>
+        <div class="form-group">
+          <label for="nom">Nom</label>
+          <input
+            type="text"
+            id="nom"
+            placeholder="Votre nom"
+            autocomplete="family-name"
+          />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Adresse email</label>
+        <input
+          type="email"
+          id="email"
+          placeholder="exemple@email.com"
+          autocomplete="email"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="mot_de_passe">Mot de passe</label>
+        <div class="input-password">
+          <input
+            type="password"
+            id="mot_de_passe"
+            placeholder="8 caractères minimum"
+            autocomplete="new-password"
+          />
+          <button
+            type="button"
+            class="btn-toggle-password"
+            onclick="toggleMotDePasse('mot_de_passe', this)"
+            aria-label="Afficher le mot de passe"
+          >👁️</button>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="confirmation_mdp">Confirmer le mot de passe</label>
+        <div class="input-password">
+          <input
+            type="password"
+            id="confirmation_mdp"
+            placeholder="Répétez le mot de passe"
+            autocomplete="new-password"
+          />
+          <button
+            type="button"
+            class="btn-toggle-password"
+            onclick="toggleMotDePasse('confirmation_mdp', this)"
+            aria-label="Afficher le mot de passe"
+          >👁️</button>
+        </div>
+      </div>
+
+      <button
+        type="button"
+        id="btn-inscription"
+        class="btn btn--primary btn--full"
+        onclick="soumettreInscription()"
+      >
+        S'inscrire
+      </button>
+
+    </div>
+
+    <div class="auth-separator"><span>ou</span></div>
+
+    <div class="auth-footer">
+      <p>Déjà un compte ?
+        <a href="#" onclick="naviguerVers('login'); return false;">
+          <strong>Se connecter</strong>
+        </a>
+      </p>
+    </div>
+
+  </div>
+
+</section>

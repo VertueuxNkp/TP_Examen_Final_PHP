@@ -1,0 +1,222 @@
+/* ============================================================
+   assets/css/admin.css
+   Styles du back-office — Admin et Modérateur
+   Thème sombre pour distinguer visuellement du client
+   ============================================================ */
+
+/* ============================================================
+   1. LAYOUT BACK-OFFICE
+   ============================================================ */
+.admin-body {
+  background: #f0f2f5;
+  min-height: 100vh;
+}
+
+.admin-navbar {
+  background: #1c1e21;
+  padding: 0 24px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+.admin-navbar__logo {
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 0.3px;
+}
+.admin-navbar__infos {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.admin-navbar__infos > span {
+  font-size: 13px;
+  color: #b0b3b8;
+  padding: 4px 12px;
+  background: #2d3139;
+  border-radius: 20px;
+}
+.admin-navbar__lien {
+  font-size: 14px;
+  font-weight: 600;
+  color: #b0b3b8;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+}
+.admin-navbar__lien:hover {
+  background: #2d3139;
+  color: #fff;
+  text-decoration: none;
+}
+
+.admin-container {
+  max-width: 1200px;
+  margin: 28px auto;
+  padding: 0 20px;
+}
+.admin-titre {
+  font-size: 22px;
+  font-weight: 800;
+  color: #1c1e21;
+  margin-bottom: 24px;
+}
+
+/* ============================================================
+   2. PAGE CONNEXION ADMIN
+   ============================================================ */
+.admin-login {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1c1e21;
+  padding: 24px;
+}
+.admin-login__card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 40px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+.admin-login__header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+.admin-login__header h1 {
+  font-size: 26px;
+  font-weight: 800;
+  color: #1c1e21;
+  margin-bottom: 8px;
+}
+.admin-login__header p {
+  font-size: 14px;
+  color: #606770;
+}
+
+/* ============================================================
+   3. DASHBOARD — CARTES DE STATS
+   ============================================================ */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.stat-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  border-top: 4px solid #1877f2;
+}
+.stat-card--vert   { border-top-color: #42b72a; }
+.stat-card--bleu   { border-top-color: #1877f2; }
+.stat-card--orange { border-top-color: #f39c12; }
+.stat-card--violet { border-top-color: #8e44ad; }
+.stat-card--rose   { border-top-color: #e74c3c; }
+
+.stat-card__valeur {
+  font-size: 36px;
+  font-weight: 800;
+  color: #1c1e21;
+  line-height: 1;
+}
+.stat-card__label {
+  font-size: 13px;
+  color: #606770;
+  font-weight: 600;
+  text-align: center;
+}
+
+.admin-tables-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* ============================================================
+   4. TABLEAUX ADMIN
+   ============================================================ */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.admin-table thead th {
+  padding: 12px 14px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #606770;
+  background: #f0f2f5;
+  border-bottom: 2px solid #e4e6eb;
+}
+.admin-table tbody td {
+  padding: 14px;
+  border-bottom: 1px solid #f0f2f5;
+  color: #1c1e21;
+  vertical-align: middle;
+}
+.admin-table tbody tr:hover { background: #f8f9fa; }
+.admin-table tbody tr:last-child td { border-bottom: none; }
+
+/* ============================================================
+   5. FORMULAIRE AJOUT ADMIN
+   ============================================================ */
+.ajout-admin-form {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #e4e6eb;
+}
+.ajout-admin-form h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1c1e21;
+  margin-bottom: 16px;
+}
+
+/* ============================================================
+   6. BADGES BACK-OFFICE
+   ============================================================ */
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.badge--vert   { background: #e6f9e2; color: #2d8a1e; }
+.badge--rouge  { background: #fce8e6; color: #c0392b; }
+.badge--bleu   { background: #e7f3ff; color: #1877f2; }
+.badge--gris   { background: #f0f2f5; color: #606770; }
+
+/* ============================================================
+   7. RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+  .stats-grid        { grid-template-columns: repeat(2, 1fr); }
+  .admin-tables-row  { grid-template-columns: 1fr; }
+  .admin-navbar__infos > span { display: none; }
+}
+
+@media (max-width: 480px) {
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+}

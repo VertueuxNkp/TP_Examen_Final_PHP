@@ -1,0 +1,161 @@
+<!-- ============================================================
+  vues/clients/profile.html
+  Profil personnel — injectée dans index.html par router.js
+  ============================================================ -->
+
+<!-- Barre de navigation -->
+<nav class="navbar">
+  <div class="navbar__logo">🌐 Réseau Social</div>
+  <div class="navbar__liens">
+    <a href="#" onclick="naviguerVers('feed');    return false;" class="navbar__lien">🏠 Accueil</a>
+    <a href="#" onclick="naviguerVers('friends'); return false;" class="navbar__lien">👥 Amis</a>
+    <a href="#" onclick="naviguerVers('chat');    return false;" class="navbar__lien">💬 Messages</a>
+    <a href="#" onclick="naviguerVers('profile'); return false;" class="navbar__lien actif">👤 Profil</a>
+    <button onclick="seDeconnecter()" class="btn btn--danger btn--sm">Déconnexion</button>
+  </div>
+</nav>
+
+<main class="profile-container">
+
+  <!-- ======================================================
+    BLOC 1 : Carte de profil (affichage)
+  ====================================================== -->
+  <section class="card profil-carte">
+
+    <div class="profil-carte__header">
+      <img
+        id="profil-avatar"
+        src=""
+        alt="Mon avatar"
+        class="profil-carte__avatar"
+        onerror="this.src=CONFIG.BASE_URL+'/assets/images/default-avatar.png'"
+      />
+      <div class="profil-carte__infos">
+        <h2 id="profil-nom-complet" class="profil-carte__nom">Chargement...</h2>
+        <p  id="profil-email"       class="profil-carte__email"></p>
+        <p  id="profil-date"        class="profil-carte__date"></p>
+      </div>
+    </div>
+
+    <!-- Bio -->
+    <div class="profil-carte__bio">
+      <h4>À propos</h4>
+      <p id="profil-bio"></p>
+    </div>
+
+    <!-- Statistiques -->
+    <div class="profil-carte__stats">
+      <div class="stat">
+        <span id="profil-nb-articles" class="stat__valeur">0</span>
+        <span class="stat__label">Articles</span>
+      </div>
+      <div class="stat">
+        <span id="profil-nb-amis" class="stat__valeur">0</span>
+        <span class="stat__label">Amis</span>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ======================================================
+    BLOC 2 : Formulaire de modification des infos
+  ====================================================== -->
+  <section class="card">
+    <h3 class="card__titre">✏️ Modifier mes informations</h3>
+
+    <div id="msg-profil" class="message" style="display:none;"></div>
+
+    <!-- Avatar avec prévisualisation -->
+    <div class="avatar-upload">
+      <img
+        id="avatar-actuel"
+        src=""
+        alt="Avatar actuel"
+        class="avatar-upload__preview"
+        onerror="this.src=CONFIG.BASE_URL+'/assets/images/default-avatar.png'"
+      />
+      <label for="input-avatar" class="btn btn--secondary btn--sm" style="cursor:pointer;">
+        📷 Changer la photo
+      </label>
+      <input type="file" id="input-avatar" accept="image/*" style="display:none;" />
+    </div>
+
+    <!-- Champs nom / prénom -->
+    <div class="form-row">
+      <div class="form-group">
+        <label for="input-prenom">Prénom</label>
+        <input type="text" id="input-prenom" placeholder="Votre prénom" />
+      </div>
+      <div class="form-group">
+        <label for="input-nom">Nom</label>
+        <input type="text" id="input-nom" placeholder="Votre nom" />
+      </div>
+    </div>
+
+    <!-- Bio -->
+    <div class="form-group">
+      <label for="input-bio">Biographie</label>
+      <textarea
+        id="input-bio"
+        rows="3"
+        placeholder="Parlez un peu de vous..."
+        maxlength="500"
+      ></textarea>
+    </div>
+
+    <button
+      id="btn-sauvegarder"
+      class="btn btn--primary"
+      onclick="sauvegarderProfil()"
+    >
+      Sauvegarder
+    </button>
+
+  </section>
+
+  <!-- ======================================================
+    BLOC 3 : Changement du mot de passe
+  ====================================================== -->
+  <section class="card">
+    <h3 class="card__titre">🔒 Changer mon mot de passe</h3>
+
+    <div id="msg-mdp" class="message" style="display:none;"></div>
+
+    <div class="form-group">
+      <label for="input-ancien-mdp">Mot de passe actuel</label>
+      <div class="input-password">
+        <input type="password" id="input-ancien-mdp" placeholder="Votre mot de passe actuel" />
+        <button type="button" class="btn-toggle-password"
+                onclick="toggleMotDePasse('input-ancien-mdp', this)">👁️</button>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="input-nouveau-mdp">Nouveau mot de passe</label>
+      <div class="input-password">
+        <input type="password" id="input-nouveau-mdp" placeholder="8 caractères minimum" />
+        <button type="button" class="btn-toggle-password"
+                onclick="toggleMotDePasse('input-nouveau-mdp', this)">👁️</button>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="input-confirm-mdp">Confirmer le nouveau mot de passe</label>
+      <div class="input-password">
+        <input type="password" id="input-confirm-mdp" placeholder="Répétez le nouveau mot de passe" />
+        <button type="button" class="btn-toggle-password"
+                onclick="toggleMotDePasse('input-confirm-mdp', this)">👁️</button>
+      </div>
+    </div>
+
+    <button
+      id="btn-changer-mdp"
+      class="btn btn--primary"
+      onclick="changerMotDePasse()"
+    >
+      Changer le mot de passe
+    </button>
+
+  </section>
+
+</main>

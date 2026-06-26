@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Réseau Social</title>
+
+  <!-- Styles globaux -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <!--
+    #app : zone où le router injecte dynamiquement les vues.
+    Toute la navigation se fait ici, sans rechargement de page.
+  -->
+  <div id="app">
+    <!-- Le contenu est chargé par router.js au démarrage -->
+    <p style="text-align:center; margin-top:40px;">Chargement...</p>
+  </div>
+
+  <!--
+    Ordre de chargement des scripts :
+    1. config.js   — constantes globales
+    2. auth.js     — fonctions d'authentification (utilisées par les vues)
+    3. router.js   — gestion de la navigation (définit naviguerVers())
+    Les autres scripts (feed.js, chat.js...) sont chargés à la demande par le router.
+  -->
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/utils.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/router.js"></script>
+
+</body>
+</html>
